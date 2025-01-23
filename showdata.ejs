@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แสดงข้อมูลสมาชิกทั้งหมด</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+  
+body {
+    margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  background: linear-gradient(to bottom, #3b82f6, #eef2ff);
+}
+
+.container {
+  max-width: 1200px;
+  height: 620px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px; 
+}
+
+.title {
+  text-align: center;
+  color: #4e73df;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f8f9fc;
+  color: #4e73df;
+  font-weight: 700;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+table td {
+  font-size: 14px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.edit {
+  background-color: #1cc88a;
+  color: white;
+}
+
+button.edit:hover {
+  background-color: #17a673;
+}
+
+button.delete {
+  background-color: #e74a3b;
+  color: white;
+}
+
+button.delete:hover {
+  background-color: #c0392b;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">แสดงข้อมูลสมาชิกทั้งหมด</h1>
+    <table id="memberTable">
+      <thead>
+        <tr>
+            <th>รหัสสมาชิก</th>
+            <th>ชื่อเข้าใช้งานระบบ</th>
+            <th>รหัสผ่าน</th>
+            <th>ชื่อ-สกุล</th>
+            <th>แผนก</th>
+            <th>เบอร์โทรศัพท์</th>
+            <th>อีเมลล์</th>
+            <th>ที่อยู่</th>
+        </tr>
+        <% member.forEach(function(item) { %>
+        <tr>
+            <td><%=item.memid%></td>
+            <td><%=item.username%></td>
+            <td><%=item.password%></td>
+            <td><%=item.fullname%></td>
+            <td><%=item.major%></td>
+            <td><%=item.phone%></td>
+            <td><%=item.email%></td>
+            <td><%=item.address%></td>
+        </tr>
+        <% }) %>
+      </thead>
+      <tbody>
+        <!-- Dynamic rows will be added here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
